@@ -12,7 +12,7 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_DEFAULT_REGION: us-east-1
       GITHUB_USER: jordivilagut
-      DOMAIN_NAME: farmify.app
+      DOMAIN_NAME: vitruviux.com
       PROJECT_ID: a9191e2a
       PROJECT_NAME: planter
       AMI_ID: ami-01f3a9a49e4032afb

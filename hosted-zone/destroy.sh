@@ -23,8 +23,7 @@ fi
 
 echo "🔥 Destroying Terraform-managed infrastructure..."
 terraform destroy -auto-approve \
-  -var="domain_name=${DOMAIN_NAME}" \
-  -var="region=${AWS_REGION}"
+  -var="domain_name=${DOMAIN_NAME}"
 
 echo "🧹 Cleaning up SSM parameters..."
 aws ssm delete-parameter \

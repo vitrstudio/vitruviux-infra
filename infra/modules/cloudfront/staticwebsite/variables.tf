@@ -4,7 +4,7 @@ variable "certificate_arn" {
 }
 
 variable "domain_name" {
-  description = "Domain name (e.g. farmify.app)"
+  description = "Domain name (e.g. domain.com)"
   type        = string
 }
 
