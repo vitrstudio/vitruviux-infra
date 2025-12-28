@@ -55,9 +55,29 @@ resource "aws_iam_policy" "deployment_bucket_read_and_write" {
   })
 }
 
+resource "aws_iam_policy" "assume_user_observer_roles" {
+  name = "${var.project_name}-assume-user-observer-roles"
+
+  policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [
+      {
+        Effect = "Allow",
+        Action = "sts:AssumeRole",
+        Resource = "arn:aws:iam::*:role/VitruviuxObserverRole-*"
+      }
+    ]
+  })
+}
+
 resource "aws_iam_role_policy_attachment" "attach_deployment_read_and_write" {
   role       = var.ssm_role_name
   policy_arn = aws_iam_policy.deployment_bucket_read_and_write.arn
+}
+
+resource "aws_iam_role_policy_attachment" "attach_assume_user_observer_roles" {
+  role       = var.ssm_role_name
+  policy_arn = aws_iam_policy.assume_user_observer_roles.arn
 }
 
 resource "aws_instance" "api" {
