@@ -1,4 +1,4 @@
-# Planter Infra
+# Vitruviux Infra
 This project automates the infrastructure deployment of the vitruviux application.
 
 ## Terraform States
@@ -23,14 +23,14 @@ This module creates a Route53 hosted zone for the vitruviux application. It is u
 This module creates the ACM certificates for the vitruviux application. It is used to secure the communication between the client and the server.
 
 ### VPC
-This module provisions a Virtual Private Cloud (VPC) for the Planter application, ensuring resource isolation and secure network connectivity. It includes the following components:
+This module provisions a Virtual Private Cloud (VPC) for the vitruviux application, ensuring resource isolation and secure network connectivity. It includes the following components:
 - **Public Subnet:** For resources that need direct internet access.
 - **Private Subnets:** For resources that require restricted access.
 - **Internet Gateway:** Enables outbound internet connectivity for public resources.
 - **NAT Gateway:** Provides internet access for private resources while maintaining security.
 
 ### NACL (Network Access Control List)
-This module provisions Network Access Control Lists (NACLs) for the Planter application to manage inbound and outbound traffic at the subnet level. It includes the following configurations:  
+This module provisions Network Access Control Lists (NACLs) for the vitruviux application to manage inbound and outbound traffic at the subnet level. It includes the following configurations:  
 - **Public NACL:**  
   - Allows HTTP (port 80), HTTPS (port 443), and SSH (port 22) traffic from any source.
   - Allows ephemeral ports (1024-65535) for outbound connections.
@@ -41,7 +41,7 @@ This module provisions Network Access Control Lists (NACLs) for the Planter appl
 These NACLs enhance security by providing fine-grained control over network traffic.
 
 ### Deployment S3
-This module provisions an S3 bucket to store deployment artifacts for the Planter application. It includes the following features:
+This module provisions an S3 bucket to store deployment artifacts for the vitruviux application. It includes the following features:
 - **Storage for Deployment Artifacts:** Used to store Terraform state files and application code.
 - **Lifecycle Management:** Automatically deletes deployment artifacts older than one day to optimize storage usage.
 - **IAM Policy:** Grants EC2 instances read access to the deployment bucket for retrieving necessary files.
@@ -54,7 +54,7 @@ This module provisions an S3 bucket to store the application code and static fil
 - **CloudFront Integration:** Grants access to the bucket through a CloudFront Origin Access Control (OAC) for secure and efficient content delivery.
 
 ### SSM
-This module provisions an AWS Systems Manager (SSM) Parameter Store for the Planter application. It includes the following features:
+This module provisions an AWS Systems Manager (SSM) Parameter Store for the vitruviux application. It includes the following features:
 
 - **Environment Variable Management:** Securely stores environment variables required by the application.
 - **Configuration Storage:** Provides a centralized location for storing configuration files.
