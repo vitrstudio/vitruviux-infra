@@ -1,11 +1,11 @@
 # Planter Infra
-This project automates the infrastructure deployment of the planter application.
+This project automates the infrastructure deployment of the vitruviux application.
 
 ## Terraform States
 Three Terraform states are used, they are stored in the vitr-terraform-states S3 bucket:
-- hosted-zone (persisted): users/jordivilagut/planter/hosted-zone/terraform.tfstate
-- acm (persisted): users/jordivilagut/planter/acm/terraform.tfstate
-- infra (ephemeral): users/jordivilagut/planter/infra/terraform.tfstate
+- hosted-zone (persisted): users/jordivilagut/vitruviux/hosted-zone/terraform.tfstate
+- acm (persisted): users/jordivilagut/vitruviux/acm/terraform.tfstate
+- infra (ephemeral): users/jordivilagut/vitruviux/infra/terraform.tfstate
 
 ## To deploy the whole infrastructure
 
@@ -17,10 +17,10 @@ Three Terraform states are used, they are stored in the vitr-terraform-states S3
 ## Infrastructure description
 
 ### Hosted Zone
-This module creates a Route53 hosted zone for the planter application. It is used to manage the DNS records for the domain.
+This module creates a Route53 hosted zone for the vitruviux application. It is used to manage the DNS records for the domain.
 
 ### Certificates (ACM)
-This module creates the ACM certificates for the planter application. It is used to secure the communication between the client and the server.
+This module creates the ACM certificates for the vitruviux application. It is used to secure the communication between the client and the server.
 
 ### VPC
 This module provisions a Virtual Private Cloud (VPC) for the Planter application, ensuring resource isolation and secure network connectivity. It includes the following components:
@@ -47,7 +47,7 @@ This module provisions an S3 bucket to store deployment artifacts for the Plante
 - **IAM Policy:** Grants EC2 instances read access to the deployment bucket for retrieving necessary files.
 
 ### App S3
-This module provisions an S3 bucket to store the application code and static files for the planter static website. It includes the following features:
+This module provisions an S3 bucket to store the application code and static files for the vitruviux static website. It includes the following features:
 - **Static Website Hosting:** Configures the bucket to serve static websites with an index and error document.
 - **Storage for Application Code:** Used to store the application code and static assets.
 - **Public Access Restrictions:** Ensures the bucket is not publicly accessible by blocking public ACLs and policies.
@@ -65,7 +65,7 @@ This module provisions an AWS Systems Manager (SSM) Parameter Store for the Plan
 - **Encryption:** Ensures sensitive data is encrypted at rest using AWS-managed or customer-managed keys.
 
 ### EC2
-This module provisions an EC2 instance for the planter API. It includes the following features:
+This module provisions an EC2 instance for the vitruviux API. It includes the following features:
 
 - **Application Hosting**: Runs the application code and serves static files.
 - **IAM Instance Profile**: Associates the instance with an IAM instance profile (`aws_iam_instance_profile`) to securely access AWS resources, such as S3 and SSM.
@@ -75,16 +75,16 @@ This module provisions an EC2 instance for the planter API. It includes the foll
 - **Deployment Bucket Access**: Grants the instance read access to the deployment S3 bucket for retrieving necessary files.
 
 ### Bastion
-This module creates a bastion host for the planter application. It is used to provide secure access to the RDS database.
+This module creates a bastion host for the vitruviux application. It is used to provide secure access to the RDS database.
 
 ### Cloudfront
-This module creates a CloudFront distribution for the planter application. It is used to provide a CDN for the application code and the static files.
+This module creates a CloudFront distribution for the vitruviux application. It is used to provide a CDN for the application code and the static files.
 
 ### Route53
-This module creates a Route53 record set for the planter application. It is used to map the domain name to the CloudFront distribution.
+This module creates a Route53 record set for the vitruviux application. It is used to map the domain name to the CloudFront distribution.
 
 ### RDS
-This module creates an RDS database for the planter application. It is used to store the application data and provide a managed database service.
+This module creates an RDS database for the vitruviux application. It is used to store the application data and provide a managed database service.
 
 ### GitHub
 This module provisions GitHub roles and permissions for github to interact with AWS resources securely. It includes the following components:

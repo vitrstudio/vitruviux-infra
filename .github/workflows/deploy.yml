@@ -14,10 +14,10 @@ jobs:
       GITHUB_USER: jordivilagut
       DOMAIN_NAME: vitruviux.com
       PROJECT_ID: a9191e2a
-      PROJECT_NAME: planter
+      PROJECT_NAME: vitruviux
       AMI_ID: ami-01f3a9a49e4032afb
-      DB_NAME: planterdb
-      DB_USERNAME: planteradmin
+      DB_NAME: vitruviuxdb
+      DB_USERNAME: vitruviuxadmin
 
     steps:
       - name: Checkout repo
