@@ -96,3 +96,4 @@ This module provisions GitHub roles and permissions for github to interact with 
   - Access to EC2 for describing instances.
   - Access to S3 for uploading, retrieving, and listing objects.
 - **Secure Workflow Integration**: Ensures that only workflows from the `main` branch of the specified GitHub repository can assume the IAM role.
+
